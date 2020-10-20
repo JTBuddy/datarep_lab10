@@ -6,6 +6,8 @@ import './App.css';
 import { Header } from './components/header';
 import { Footer } from './components/footer';
 import { Content } from './components/content';
+import { Read } from './components/read';
+import { Create } from './components/create';
 
 //importing bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -13,6 +15,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar, Nav } from 'react-bootstrap';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 
 //Changed the existing function to a class
 class App extends Component {
@@ -37,8 +40,8 @@ class App extends Component {
           {/* Putting the different components on separate pages */}
           <Switch>
             <Route path='/' component={Content} exact />
-            <Route path='/create' component={Header} exact />
-            <Route path='/read' component={Footer} exact />
+            <Route path='/create' component={Create} exact />
+            <Route path='/read' component={Read} exact />
           </Switch>
         </div>
       </Router>
