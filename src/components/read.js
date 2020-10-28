@@ -1,39 +1,39 @@
 import React from 'react';
 import { Movies } from './movies';
+//Importing axios after it was installed in the command prompt
+import axios from 'axios';
 
 //Creating a read class
-export class Read extends React.Component{
-    //using the render method 
+export class Read extends React.Component {
 
     state = {
         //Creating an object named movies
-        movies:         [
-            {
-            "Title": "Avengers: Infinity War",
-            "Year": "2018",
-            "imdbID": "tt4154756",
-            "Type": "movie",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SX300.jpg"
-            },
-            {
-            "Title": "Captain America: Civil War",
-            "Year": "2016",
-            "imdbID": "tt3498820",
-            "Type": "movie",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@._V1_SX300.jpg"
-            },
-            {
-            "Title": "Charlie Wilson's War",
-            "Year": "2007",
-            "imdbID": "tt0472062",
-            "Type": "movie",
-            "Poster": "https://m.media-amazon.com/images/M/MV5BMTgwMDgwMDc4MF5BMl5BanBnXkFtZTYwOTU3MDM4._V1_SX300.jpg"
-            }
-            ]  
+        movies: []
     };
 
-    render(){
-        return(
+    //Gets called when every our component is active
+    componentDidMount() {
+        //Retrieve information from the url provided
+        axios.get('https://jsonblob.com/api/jsonblob/520c3b5e-0312-11eb-a6af-cbf00d776032')
+            // First call back function
+            .then(
+                //The data is called a response
+                (response) => {
+                    //Updating the state with the data that came back
+                    this.setState({ movies: response.data.Search })
+                }
+            )
+            //Second call back function (rejected state) 
+            .catch((error) => {
+                //Log error to the console if there is a problem
+                console.log(error)
+                //End of .catch
+            });
+        //End of componentDidMount
+    }
+
+    render() {
+        return (
             <div>
                 <h1>This is the read component.</h1>
 
