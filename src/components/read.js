@@ -14,13 +14,13 @@ export class Read extends React.Component {
     //Gets called when every our component is active
     componentDidMount() {
         //Retrieve information from the url provided
-        axios.get('https://jsonblob.com/api/jsonblob/520c3b5e-0312-11eb-a6af-cbf00d776032')
+        axios.get('http://localhost:4000/api/movies')
             // First call back function
             .then(
                 //The data is called a response
                 (response) => {
                     //Updating the state with the data that came back
-                    this.setState({ movies: response.data.Search })
+                    this.setState({ movies: response.data.movies })
                 }
             )
             //Second call back function (rejected state) 

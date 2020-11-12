@@ -1,4 +1,6 @@
 import React from 'react';
+//importing axios
+import axios from 'axios';
 
 // Creating a create class
 export class Create extends React.Component {
@@ -42,6 +44,23 @@ export class Create extends React.Component {
     onSubmit(e) {
         e.preventDefault();
         alert("Movie: " + this.state.Title + " " + this.state.Year + " " + this.state.Poster);
+
+        //sending data to the server
+        const newMovie = {
+            title: this.state.Title,
+            year: this.state.Year,
+            poster: this.state.Poster
+        }
+        //making post request asynchronous 
+        axios.post('http://localhost:4000/api/movies', newMovie)
+        //run if everything works
+        .then((res) => {
+            console.log(res);
+        })
+        //log error to the console
+        .catch((err)=> {
+            console.log(err);
+        });
     }
 
     // Using the render method 
