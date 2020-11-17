@@ -20,7 +20,7 @@ export class Read extends React.Component {
                 //The data is called a response
                 (response) => {
                     //Updating the state with the data that came back
-                    this.setState({ movies: response.data.movies })
+                    this.setState({ movies: response.data })
                 }
             )
             //Second call back function (rejected state) 

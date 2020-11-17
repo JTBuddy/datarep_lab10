@@ -11,13 +11,13 @@ export class MovieItem extends React.Component {
 
                 <Card style={{ width: '14rem' }}>
                     {/* Displaying the movie Poster image */}
-                    <Card.Img variant="top" src={this.props.movie.Poster} width="220" height="300" />
+                    <Card.Img variant="top" src={this.props.movie.poster} width="220" height="300" />
                     <Card.Body>
                         {/* Displaying the movie Title */}
-                        <Card.Title>{this.props.movie.Title}</Card.Title>
+                        <Card.Title>{this.props.movie.title}</Card.Title>
                         <Card.Text>
                             {/* Diplaying the movie Year */}
-                            {this.props.movie.Year}
+                            {this.props.movie.year}
                         </Card.Text>
                     </Card.Body>
                 </Card>
