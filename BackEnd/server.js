@@ -83,7 +83,7 @@ app.get('/api/movies/:id', (req, res) => {
     })
 })
 
-//Request that has a deleta method 
+//Request that has a delete method 
 app.delete('/api/movies/:id', (req,res) => {
     console.log("Delete Movie: "+req.params.id);
 
