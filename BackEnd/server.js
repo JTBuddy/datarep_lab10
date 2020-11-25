@@ -83,6 +83,16 @@ app.get('/api/movies/:id', (req, res) => {
     })
 })
 
+//Request that has a deleta method 
+app.delete('/api/movies/:id', (req,res) => {
+    console.log("Delete Movie: "+req.params.id);
+
+    //Find record by Id and delete it from the db
+    MovieModel.findByIdAndDelete(req.params.id, (err, data) => {
+        res.send(data);
+    })
+})
+
 app.post('/api/movies', (req, res) =>{
     console.log('Movie Recieved!');
     console.log(req.body.title);

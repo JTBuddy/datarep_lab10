@@ -7,7 +7,7 @@ export class Movies extends React.Component{
     render(){
         // Using map to break up the movies into different sections
         return this.props.movies.map((movie)=>{
-            return <MovieItem movie={movie}></MovieItem>
+            return <MovieItem movie={movie} ReloadData={this.props.ReloadData}></MovieItem>
         })
     }
 }
