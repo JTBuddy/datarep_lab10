@@ -3,6 +3,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import axios from 'axios';
+import { Link } from 'react-router-dom'; 
 
 //Creating a MovieItem class
 export class MovieItem extends React.Component {
@@ -43,6 +44,8 @@ export class MovieItem extends React.Component {
                             {this.props.movie.year}
                         </Card.Text>
                     </Card.Body>
+                    <Link to={"/edit/" + this.props.movie._id} className="btn btn-info"> Edit </Link>
+
                     {/* Delete Button  */}
                     <Button variant="danger" onClick={this.DeleteMovie}> Delete </Button>
                 </Card>

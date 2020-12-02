@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 import './App.css';
 
 //importing the js classes from the components folder
-import { Header } from './components/header';
-import { Footer } from './components/footer';
+//import { Header } from './components/header';
+//import { Footer } from './components/footer';
 import { Content } from './components/content';
 import { Read } from './components/read';
 import { Create } from './components/create';
+import { Edit } from './components/edit';
 
 //importing bootstrap css
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -40,8 +41,9 @@ class App extends Component {
           {/* Putting the different components on separate pages */}
           <Switch>
             <Route path='/' component={Content} exact />
-            <Route path='/create' component={Create} exact />
-            <Route path='/read' component={Read} exact />
+            <Route path='/create' component={Create}  />
+            <Route path='/read' component={Read}  />
+            <Route path='/edit/:id' component={Edit} />
           </Switch>
         </div>
       </Router>
