@@ -7,6 +7,7 @@ const cors = require('cors')
 const bodyParser =  require("body-parser")
 //importing mongoose
 const mongoose = require('mongoose');
+const path = require('path');
 
 app.use(cors())
 
@@ -17,6 +18,10 @@ app.use(function(req, res, next){
     "Origin, X-Requested-With, Content-Type, Accept");
     next();
 })
+
+//Showing where the build and static folder is 
+app.use(express.static(path.join(__dirname, '../build')));
+app.use('/static', express.static(path.join(__dirname, 'build//static')));
 
 //parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -117,6 +122,10 @@ app.post('/api/movies', (req, res) =>{
     })
 
     res.send('Item Added');
+})
+
+app.get('*', (req,res) =>{
+    res.sendFile(path.join(__dirname+'/../build/index.html'));
 })
 
 app.listen(port, () => {
